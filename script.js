@@ -1,16 +1,19 @@
+// variables
 var currentDay = moment().format('LL');
 
+// current date
 $("#currentDay").text(currentDay)
 
-// variables
-// when I click button
-$('#btn').on('click', function(event){
-    var text = $('#text').val();
-    event.preventDefault()
-    localStorage.setItem('9AM Input', text);
+// button click
+$('#nineBtn').on('click', function(event){
+    var nineText = $('#nineText').val();
     
-
-    console.log(event)
+    event.preventDefault()
+    // saved text goes to local storage
+    localStorage.setItem('9AM', nineText);
+    
 })
-// inner text is selected
-// saved text goes to local storage
+// retrieve from local storage
+$('#nineText').val(localStorage.getItem('9AM'))
+
+
