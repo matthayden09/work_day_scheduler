@@ -4,8 +4,8 @@ var currentTime = moment().format('LT');
 var startDay = moment().startOf('hour');
 var currentHour = currentTime.split(':')[0]
 var allHours = ['9', '10', '11', '12', '1', '2', '3', '4', '5']
-console.log(currentHour)
-console.log('time', currentTime, typeof(currentTime))
+// console.log(currentHour)
+// console.log('time', currentTime, typeof(currentTime))
 
 // display current date
 $("#currentDay").text(currentDay)
@@ -50,28 +50,16 @@ $('#four').val(localStorage.getItem('4PM'))
 $('#five').val(localStorage.getItem('5PM'))
 
 
-function presentTime(){
-    console.log(currentHour)
-    // console.log(document.getElementById(currentHour))
-    console.log($(`#${currentHour}`))
-    console.log(document.getElementById(currentHour).childNodes[1])
+function presentTime() {
+
+    $(`#${currentHour}`).addClass('present')
+
 }
 presentTime()
 
+// function split past and future hours
 
-// // add colors based on time of day
-// function timeColor() {
-    
-//     if (startDay.isAfter(currentTime)) {
-//         $("textarea").addClass("past");
-//     }
-//     else if (startDay.isBefore(currentTime)) {
-//         $("textarea").addClass("future");
-//     }
-//     else if (startDay.isSame(currentTime)) {
-//         $("textarea").addClass("present");
-//     }
-// };
 
-// timeColor();
+
+
 

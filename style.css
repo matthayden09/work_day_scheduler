@@ -71,6 +71,6 @@ body {
   }
 
   .col-8 {
-    background-color: #d3d3d3;
+    /* background-color: #d3d3d3; */
     border: dotted;
   }
