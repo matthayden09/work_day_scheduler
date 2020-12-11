@@ -1,13 +1,18 @@
 // variables
 var currentDay = moment().format('LL');
 var currentTime = moment().format('LT');
+var startDay = moment().startOf('hour');
+var currentHour = currentTime.split(':')[0]
+var allHours = ['9', '10', '11', '12', '1', '2', '3', '4', '5']
+console.log(currentHour)
+console.log('time', currentTime, typeof(currentTime))
 
-// current date
+// display current date
 $("#currentDay").text(currentDay)
-// current time
+// display current time
 $("#currentTime").text(currentTime)
 
-// button click
+// on button click
 $('.saveBtn').on('click', function (event) {
     var nine = $('#nine').val();
     var ten = $('#ten').val();
@@ -32,19 +37,41 @@ $('.saveBtn').on('click', function (event) {
     localStorage.setItem('4PM', four);
     localStorage.setItem('5PM', five);
 
-})
-    // retrieve from local storage
-    $('#nine').val(localStorage.getItem('9AM'))
-    $('#ten').val(localStorage.getItem('10AM'))
-    $('#eleven').val(localStorage.getItem('11AM'))
-    $('#twelve').val(localStorage.getItem('12PM'))
-    $('#one').val(localStorage.getItem('1PM'))
-    $('#two').val(localStorage.getItem('2PM'))
-    $('#three').val(localStorage.getItem('3PM'))
-    $('#four').val(localStorage.getItem('4PM'))
-    $('#five').val(localStorage.getItem('5PM'))
+});
+// retrieve from local storage
+$('#nine').val(localStorage.getItem('9AM'))
+$('#ten').val(localStorage.getItem('10AM'))
+$('#eleven').val(localStorage.getItem('11AM'))
+$('#twelve').val(localStorage.getItem('12PM'))
+$('#one').val(localStorage.getItem('1PM'))
+$('#two').val(localStorage.getItem('2PM'))
+$('#three').val(localStorage.getItem('3PM'))
+$('#four').val(localStorage.getItem('4PM'))
+$('#five').val(localStorage.getItem('5PM'))
 
 
+function presentTime(){
+    console.log(currentHour)
+    // console.log(document.getElementById(currentHour))
+    console.log($(`#${currentHour}`))
+    console.log(document.getElementById(currentHour).childNodes[1])
+}
+presentTime()
 
 
+// // add colors based on time of day
+// function timeColor() {
+    
+//     if (startDay.isAfter(currentTime)) {
+//         $("textarea").addClass("past");
+//     }
+//     else if (startDay.isBefore(currentTime)) {
+//         $("textarea").addClass("future");
+//     }
+//     else if (startDay.isSame(currentTime)) {
+//         $("textarea").addClass("present");
+//     }
+// };
+
+// timeColor();
 
