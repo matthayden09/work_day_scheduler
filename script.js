@@ -3,9 +3,9 @@ var currentDay = moment().format('LL');
 var currentTime = moment().format('LT');
 var startDay = moment().startOf('hour');
 var currentHour = currentTime.split(':')[0]
-var allHours = ['9', '10', '11', '12', '1', '2', '3', '4', '5']
-// console.log(currentHour)
-// console.log('time', currentTime, typeof(currentTime))
+var allHours = ['9', '10', '11', '12', '1', '2', '3', '4', '5',]
+var pastHours = allHours.slice(0, allHours.indexOf(currentHour))
+var futureHours = allHours.slice(allHours.indexOf(currentHour)+1)
 
 // display current date
 $("#currentDay").text(currentDay)
@@ -36,8 +36,8 @@ $('.saveBtn').on('click', function (event) {
     localStorage.setItem('3PM', three);
     localStorage.setItem('4PM', four);
     localStorage.setItem('5PM', five);
-
 });
+
 // retrieve from local storage
 $('#nine').val(localStorage.getItem('9AM'))
 $('#ten').val(localStorage.getItem('10AM'))
@@ -49,16 +49,19 @@ $('#three').val(localStorage.getItem('3PM'))
 $('#four').val(localStorage.getItem('4PM'))
 $('#five').val(localStorage.getItem('5PM'))
 
-
-function presentTime() {
-
+// assigns appropriate color to time blocks
+function timeColor() {
+    for(i=0; i < pastHours.length; i++) {
+        $(`#${pastHours[i]}`).addClass('past')
+    }
+    
     $(`#${currentHour}`).addClass('present')
-
+    
+    for(i=0; i < futureHours.length; i++) {
+        $(`#${futureHours[i]}`).addClass('future')
+    } 
 }
-presentTime()
-
-// function split past and future hours
-
+timeColor()
 
 
 
