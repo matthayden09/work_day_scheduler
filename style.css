@@ -58,11 +58,9 @@ body {
   }
   
   .saveBtn {
-    border-left: 1px solid black;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
-    background-color: lightblue;
-    color: white;
+    border: 2px solid black;
+    background-color: white;
+    color: black;
   }
    
   
@@ -71,6 +69,8 @@ body {
     transition: all .3s ease-in-out;
   }
 
+  
+ 
  
 
   
